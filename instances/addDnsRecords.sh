@@ -1,9 +1,9 @@
 #!/bin/bash
 
 source /home/ubuntu/aws-hostcontainer/instances/instanceVars.sh
+cli=/usr/local/bin/cli53
 
 host=$(hostname -f | cut -d. -f1)
-cli=$(which cli53)
 zone=$domainName
 if [ -z $cli ];then echo "ERROR. cli53 not installed" ; exit ; fi
 
