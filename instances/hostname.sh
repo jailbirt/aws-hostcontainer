@@ -1,5 +1,5 @@
 #!/bin/bash                                                                                                                                                                                                      
-source /home/ubuntu/theeye_scripts/instances/instanceVars.sh
+source /home/ubuntu/aws-hostcontainer/instances/instanceVars.sh
 
 instancesRunningTags=$(ec2-describe-instances --filter instance-state-code=16 |grep TAG |grep $instanceType)
 

@@ -1,8 +1,8 @@
 #!/bin/bash
-scriptsPath='/home/ubuntu/theeye_scripts'
+scriptsPath='/home/ubuntu/aws-hostcontainer'
 source $scriptsPath/instances/instanceVars.sh --printvars
 #Get Priv Key.
-/home/ubuntu/theeye_scripts/s3/downloadFileFromS3AndDoSomething.js --bucket $bucket --file $file --dest $keyPath --user ubuntu  --group ubuntu --perms 600
+/home/ubuntu/aws-hostcontainer/s3/downloadFileFromS3AndDoSomething.js --bucket $bucket --file $file --dest $keyPath --user ubuntu  --group ubuntu --perms 600
 cp $keyPath/$file $keyPath/id_rsa
 chown ubuntu $keyPath/id_rsa && chmod 600 $keyPath/id_rsa
 

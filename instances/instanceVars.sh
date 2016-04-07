@@ -3,7 +3,7 @@ source /home/ubuntu/configs/customVars.sh
 #Defines location for dockers
 dockerPath='/home/ubuntu/dockers/'
 #Defines location for scripts
-scriptsPath='/home/ubuntu/theeye_scripts'
+scriptsPath='/home/ubuntu/aws-hostcontainer'
 #Defines priv key dest.
 keyPath='/home/ubuntu/.ssh'
 
@@ -19,7 +19,7 @@ region=`/usr/bin/curl -s http://169.254.169.254/latest/dynamic/instance-identity
 elasticIp=''
 loadBalancer=''
 #evaluar si cloudwatch o directamente elastic.
-#/home/ubuntu/theeye_scripts/batch/os/awsLogs.sh staging
+#/home/ubuntu/aws-hostcontainer/batch/os/awsLogs.sh staging
 dockerEnv=''
 
 printVars () {
@@ -48,21 +48,21 @@ case $instanceType in
   *nodep*)
     loadBalancer=production$codeName\ContainerHosts
     #evaluar si cloudwatch o directamente elastic.
-    #/home/ubuntu/theeye_scripts/batch/os/awsLogs.sh prod
+    #/home/ubuntu/aws-hostcontainer/batch/os/awsLogs.sh prod
     dockerEnv=production
   ;;
 
   *nodes*)
     loadBalancer=staging$codeName\ContainerHosts
     #evaluar si cloudwatch o directamente elastic.
-    #/home/ubuntu/theeye_scripts/batch/os/awsLogs.sh staging
+    #/home/ubuntu/aws-hostcontainer/batch/os/awsLogs.sh staging
     dockerEnv=staging
   ;;
 
   *noded*)
    loadBalancer=demo$codeName\ContainerHosts
    #evaluar si cloudwatch o directamente elastic.
-   #/home/ubuntu/theeye_scripts/batch/os/awsLogs.sh staging
+   #/home/ubuntu/aws-hostcontainer/batch/os/awsLogs.sh staging
    dockerEnv=demo
   ;;
 

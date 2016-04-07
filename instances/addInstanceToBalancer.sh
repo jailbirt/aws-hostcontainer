@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source /home/ubuntu/theeye_scripts/instances/instanceVars.sh
+source /home/ubuntu/aws-hostcontainer/instances/instanceVars.sh
 
 host=$(hostname -s)
 

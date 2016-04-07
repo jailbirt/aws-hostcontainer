@@ -1,5 +1,5 @@
 #!/bin/bash
-scriptsPath='/home/ubuntu/theeye_scripts'
+scriptsPath='/home/ubuntu/aws-hostcontainer'
 source $scriptsPath/instances/instanceVars.sh
 
 echo "Getting into $dockerPath"
