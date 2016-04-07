@@ -3,6 +3,8 @@
 path=$1
 oldPath=$(pwd)
 
+echo "Executing $0 $1 ..."
+
 if [ -z $path ];then echo "Run $0 path"; exit ; fi
 if [ ! -d $path ];then echo "Path is not a directory, bye!" ; exit ; fi
 
