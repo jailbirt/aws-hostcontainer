@@ -1,10 +1,13 @@
 #!/bin/bash
 
+if [ -z $host ];then
+ echo run as: $0 hostDestiny
+fi
 startDate=$(date +%Y%m%d --date="1 year ago")
 endDate=$(date +%Y%m%d --date="45 days ago")
 script='/usr/local/scripts/elasticsearch/deleteDateRange.sh'
 
-host='https://search-theeye-production-tvqs7qi6yyq7ihiohz3gfxtakm.us-east-1.es.amazonaws.com'
+host='$1'
 types='agentversion host-stats resource-stats'
 field='date'
 
