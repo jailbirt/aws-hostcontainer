@@ -24,7 +24,7 @@ while ! [ -e /var/run/docker.sock ]; do
   sleep 0.1
 done
 echo "Running Deploy"
-$scriptsPath/instances/dockerDeploy.sh
+sudo su - ubuntu -c "$scriptsPath/instances/dockerDeploy.sh"
 
 echo "initializing HostContainer Env:$dockerEnv,
      data: $instanceType $imageID $imageDesc" | mail -s "Initializing DockerHost Container Env:$dockerEnv " $notify
