@@ -3,8 +3,10 @@
 path=$1
 oldPath=$(pwd)
 
+echo Getting $path .... 
+
 if [ -z $path ];then echo "Run $0 path"; exit ; fi
-if [ ! -d $path ];then echo "Path is not a directory, bye!" ; exit ; fi
+if [ ! -d $path ];then echo "Path > '$path' is not a directory, bye!" ; exit ; fi
 
 user=$(ls -ld $path | awk '{print $3}')
 runAs="sudo su - $user -c"
