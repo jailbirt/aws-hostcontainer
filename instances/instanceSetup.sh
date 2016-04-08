@@ -1,10 +1,15 @@
 #!/bin/bash
 scriptsPath='/home/ubuntu/aws-hostcontainer'
+aws='/usr/bin/aws'
 source $scriptsPath/instances/instanceVars.sh --printvars
 #Get Priv Key.
-/home/ubuntu/aws-hostcontainer/s3/downloadFileFromS3AndDoSomething.js --bucket $bucket --file $file --dest $keyPath --user ubuntu  --group ubuntu --perms 600
+echo Getting Private Files... 
+echo Get Your Private Key.
+$aws s3 cp --region us-east-1 s3://$privKeybucket/$privKey $keyPath
 cp $keyPath/$file $keyPath/id_rsa
 chown ubuntu $keyPath/id_rsa && chmod 600 $keyPath/id_rsa
+echo Get Your Configurations.
+$aws s3 sync --region us-east-1 s3://$configurationsPath $keyPath
 
 common() {
   $scriptsPath/instances/createSwapFile.sh
