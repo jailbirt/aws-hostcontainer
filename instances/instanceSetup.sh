@@ -5,11 +5,12 @@ source $scriptsPath/instances/instanceVars.sh --printvars
 #Get Priv Key.
 echo Getting Private Files... 
 echo Get Your Private Key.
-$aws s3 cp --region us-east-1 s3://$privKeybucket/$privKey $keyPath
+echo $aws s3 cp s3://$privKeybucket/$privKey $keyPath
+$aws s3 cp s3://$privKeybucket/$privKey $keyPath
 cp $keyPath/$file $keyPath/id_rsa
 chown ubuntu $keyPath/id_rsa && chmod 600 $keyPath/id_rsa
 echo Get Your Configurations.
-$aws s3 sync --region us-east-1 s3://$configurationsPath $keyPath
+$aws s3 sync s3://$configurationsBucket /home/ubuntu/configs
 
 common() {
   $scriptsPath/instances/createSwapFile.sh
