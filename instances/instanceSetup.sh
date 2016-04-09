@@ -28,7 +28,7 @@ common
 cp /home/ubuntu/configs/nginx_default /etc/nginx/sites-available/default
 
 echo "Cleaning dockers unused volumes"
-$scriptsPath/docker/dockerRMImages.sh
+$scriptsPath/docker/dockerCleanUp.sh
 
 echo "Please wait until docker socket is ready"
 #Wait until docker service is ready
