@@ -24,6 +24,9 @@ common() {
 
 common
 
+#Temporal
+cp /home/ubuntu/configs/nginx_default /etc/nginx/sites-available/default
+
 echo "Cleaning dockers unused volumes"
 $scriptsPath/docker/dockerRMImages.sh
 
