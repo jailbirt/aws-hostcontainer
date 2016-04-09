@@ -23,6 +23,9 @@ common() {
 
 common
 
+echo "Cleaning dockers unused volumes"
+$scriptsPath/docker/dockerRMImages.sh
+
 echo "Please wait until docker socket is ready"
 #Wait until docker service is ready
 while ! [ -e /var/run/docker.sock ]; do
