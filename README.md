@@ -22,16 +22,16 @@ also ./misc/bucket/config which it's content should be properly configurated and
 
 AWS Prerequisites:
 
-1- Using IAM, please create a role for your instances and attach S3FULLAccess as a policy
-2-Create your load Balancers, by using: Demo<someCodeName>ContainerHosts
-2.a <Optional> create or import your SSL certificates.
-2.b <Optional> Nginx is installed by default, so you can move forward by opening listeners on: 
+* 1- Using IAM, please create a role for your instances and attach S3FULLAccess as a policy
+* 2-Create your load Balancers, by using: Demo<someCodeName>ContainerHosts
+* 2.a <Optional> create or import your SSL certificates.
+* 2.b <Optional> Nginx is installed by default, so you can move forward by opening listeners on: 
     80(tcp) ->81(tcp)
     443(ssl)->80(tcp)
-3- launch XXXXX AWS AMI
-3-create two S3 buckets:
- 4.1-oneForYourPrivKeys. - upload your priv key.
- 4.2-oneForYourConfigs.  -upload your configs with sensible data
-5- get into your instance.
-6- configure /home/ubuntu/configs/customVars.sh for matching with your params.
+* 3- launch XXXXX AWS AMI
+* 4-create two S3 buckets:
+* 4.1-oneForYourPrivKeys. - upload your priv key.
+* 4.2-oneForYourConfigs.  -upload your configs with sensible data
+* 5- get into your instance.
+* 6- configure /home/ubuntu/configs/customVars.sh for matching with your params.
 
