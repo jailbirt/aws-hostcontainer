@@ -25,8 +25,8 @@ common() {
 common
 
 #Temporal
-cp /home/ubuntu/configs/nginx_default /etc/nginx/sites-available/default
-cp /home/ubuntu/configs/logrotate.d/nginx /etc/logrotate.d/
+cp /home/ubuntu/configs/etc/nginx/sites-available/default /etc/nginx/sites-available/
+cp /home/ubuntu/configs/etc/logorate.d/* /etc/logrotate.d/
 
 echo "Cleaning dockers unused volumes"
 $scriptsPath/docker/dockerCleanUp.sh
