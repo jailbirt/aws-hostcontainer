@@ -26,6 +26,7 @@ common
 
 #Temporal
 cp /home/ubuntu/configs/nginx_default /etc/nginx/sites-available/default
+cp /home/ubuntu/configs/logrotate.d/nginx /etc/logrotate.d/
 
 echo "Cleaning dockers unused volumes"
 $scriptsPath/docker/dockerCleanUp.sh
