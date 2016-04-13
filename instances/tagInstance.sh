@@ -4,10 +4,11 @@ source /home/ubuntu/aws-hostcontainer/instances/instanceVars.sh
 
 host=$(hostname -s)
 
-echo "Tag instance: $instanceID con tag: $host"
+#Instance tagging
+echo "Taggging Instance: $instanceID with Tag: $host"
 ec2addtag $instanceID --tag Name=$host --region $region
 
-#tag de volumenes.
+#Volume tagging
 tag="main_$host"
 for i in $(ec2-describe-volumes | grep $instanceID | grep -v 'sdh' | awk '{print $2}')
 do
