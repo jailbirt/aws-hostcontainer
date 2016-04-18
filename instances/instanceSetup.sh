@@ -9,8 +9,8 @@ echo $aws s3 cp s3://$privKeybucket/$privKey $keyPath
 $aws s3 cp s3://$privKeybucket/$privKey $keyPath
 cp $keyPath/$file $keyPath/id_rsa
 chown ubuntu $keyPath/id_rsa && chmod 600 $keyPath/id_rsa
-echo Get Your Configurations.
-$aws s3 sync s3://$configurationsBucket /home/ubuntu/configs
+echo Get Your Configurations: $aws s3 sync s3://$configurationsBucket /home/ubuntu/configs
+$aws s3 sync s3://$configurationsPath /home/ubuntu/configs
 chown -R ubuntu.ubuntu /home/ubuntu/configs
 
 common() {
