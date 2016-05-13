@@ -21,6 +21,7 @@ loadBalancer=''
 #evaluar si cloudwatch o directamente elastic.
 #/home/ubuntu/aws-hostcontainer/batch/os/awsLogs.sh staging
 dockerEnv=''
+export AWS_DEFAULT_REGION=$region
 
 printVars () {
    echo "#Instance Variables#
