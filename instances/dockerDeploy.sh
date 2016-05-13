@@ -1,6 +1,8 @@
 #!/bin/bash
 scriptsPath='/home/ubuntu/aws-hostcontainer'
 compose=/usr/local/bin/docker-compose
+#Get configs from s3.
+$scriptsPath/instances/getConfigs.sh
 source $scriptsPath/instances/instanceVars.sh
 
 echo "Getting into $dockerPath"
