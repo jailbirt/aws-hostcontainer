@@ -67,6 +67,11 @@ case $instanceType in
    dockerEnv=demo
   ;;
 
+  *nodex*)
+   loadBalancer='nodexLB geoserverxInternalLB'
+   dockerEnv=experimental
+  ;;
+
   *) ;;
 
 esac
