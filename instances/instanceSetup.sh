@@ -24,7 +24,6 @@ common() {
   $scriptsPath/instances/tagInstance.sh
   $scriptsPath/instances/addDnsRecords.sh
   $scriptsPath/instances/getLastSourceFromGit.sh /home/ubuntu/dockers
-  $scriptsPath/instances/updateCodePaths.sh
   $scriptsPath/instances/addInstanceToBalancer.sh
 }
 

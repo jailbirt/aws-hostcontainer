@@ -68,6 +68,7 @@ case $instanceType in
   ;;
 
   *nodex*)
+   instanceType='awsnodex'
    loadBalancer='nodexLB geoserverxInternalLB'
    dockerEnv=experimental
   ;;
