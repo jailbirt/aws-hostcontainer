@@ -73,6 +73,11 @@ case $instanceType in
    dockerEnv=experimental
   ;;
 
+  *geoserver283*)
+   instanceType='awsgeoservers283'
+   dockerEnv=geoserver283
+  ;;
+
   *) ;;
 
 esac
