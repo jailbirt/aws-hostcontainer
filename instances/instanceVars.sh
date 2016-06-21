@@ -73,9 +73,15 @@ case $instanceType in
    dockerEnv=experimental
   ;;
 
-  *geoserverspot*)
-   instanceType='awsgeoserverspot'
-   dockerEnv=geoserverspot
+  *webcropvates*)
+   instancetype='awswebcropvatesserver'
+   loadBalancer='vatesWebcropProduction'
+   dockerEnv=production
+  ;;
+
+  *webcropstagingvates*)
+   instancetype='awswebcropstagingvatesserver'
+   dockerEnv=staging
   ;;
 
   *) ;;
