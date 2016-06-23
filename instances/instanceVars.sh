@@ -33,7 +33,8 @@ printVars () {
    publicipv4: $publicipv4
    Debug UserData: $userData
    elasticIp: $elasticIp
-   maximaCantInstancias=$maximaCantInstancias"
+   loadBalancer: $loadBalancer
+   maximaCantInstancias: $maximaCantInstancias"
 }
 
 echo $userData | grep -qi 'not found'
@@ -54,22 +55,20 @@ case $instanceType in
   ;;
 
   *nodes*)
-    loadBalancer=staging$codeName\ContainerHosts
-    #evaluar si cloudwatch o directamente elastic.
-    #/home/ubuntu/aws-hostcontainer/batch/os/awsLogs.sh staging
+    instanceType='nodes'
     dockerEnv=staging
+    #set in customVars.sh
+    #loadBalancer=staging$codeName\ContainerHosts
   ;;
 
   *noded*)
    loadBalancer=demo$codeName\ContainerHosts
    #evaluar si cloudwatch o directamente elastic.
-   #/home/ubuntu/aws-hostcontainer/batch/os/awsLogs.sh staging
    dockerEnv=demo
   ;;
 
   *nodex*)
    instanceType='awsnodex'
-   loadBalancer='nodexLB geoserverxInternalLB'
    dockerEnv=experimental
   ;;
 
