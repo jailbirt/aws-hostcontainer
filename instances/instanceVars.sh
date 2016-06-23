@@ -48,39 +48,38 @@ instanceType=$(echo $instanceType | cut -d'.' -f1 | sed s/[0-9]//g)
 case $instanceType in
 
   *nodep*)
-    loadBalancer=production$codeName\ContainerHosts
+    dockerEnv=production
+    loadBalancer="$dockerEnv$codeName'ContainerHosts'"
     #evaluar si cloudwatch o directamente elastic.
     #/home/ubuntu/aws-hostcontainer/batch/os/awsLogs.sh prod
-    dockerEnv=production
   ;;
 
   *nodes*)
     instanceType='nodes'
     dockerEnv=staging
-    #set in customVars.sh
-    #loadBalancer=staging$codeName\ContainerHosts
+    loadBalancer="$loadBalancer "$dockerEnv$codeName'ContainerHosts'""
   ;;
 
   *noded*)
-   loadBalancer=demo$codeName\ContainerHosts
-   #evaluar si cloudwatch o directamente elastic.
-   dockerEnv=demo
+    dockerEnv=demo
+    loadBalancer="$dockerEnv$codeName'ContainerHosts'"
   ;;
 
   *nodex*)
-   instanceType='awsnodex'
-   dockerEnv=experimental
+    instanceType='awsnodex'
+    dockerEnv=experimental
+    loadBalancer="$loadBalancer "$dockerEnv$codeName'ContainerHosts'""
   ;;
 
   *webcropvates*)
-   instancetype='awswebcropvatesserver'
-   loadBalancer='vatesWebcropProduction'
-   dockerEnv=production
+    instancetype='awswebcropvatesserver'
+    loadBalancer='vatesWebcropProduction'
+    dockerEnv=production
   ;;
 
   *webcropstagingvates*)
-   instancetype='awswebcropstagingvatesserver'
-   dockerEnv=staging
+    instancetype='awswebcropstagingvatesserver'
+    dockerEnv=staging
   ;;
 
   *) ;;
