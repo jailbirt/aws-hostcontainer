@@ -34,15 +34,16 @@ cp -pr /home/ubuntu/configs/etc/nginx/* /etc/nginx/
 service nginx reload
 cp /home/ubuntu/configs/etc/logorate.d/* /etc/logrotate.d/
 
-echo "Cleaning dockers unused volumes"
-$scriptsPath/docker/dockerCleanUp.sh
-
 echo "Please wait until docker socket is ready"
 #Wait until docker service is ready
 while ! [ -e /var/run/docker.sock ]; do
   echo "*"
   sleep 0.1
 done
+
+echo "Cleaning dockers unused volumes"
+$scriptsPath/docker/dockerCleanUp.sh
+
 echo "Running Deploy"
 sudo su - ubuntu -c "$scriptsPath/instances/dockerDeploy.sh"
 
