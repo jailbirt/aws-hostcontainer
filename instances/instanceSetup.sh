@@ -1,6 +1,7 @@
 #!/bin/bash
 scriptsPath='/home/ubuntu/aws-hostcontainer'
 aws='/usr/bin/aws'
+dockerDaemonStatus='off'
 source $scriptsPath/instances/instanceVars.sh --printvars
 #Get Priv Key.
 echo Getting Private Files... 
@@ -36,9 +37,18 @@ cp /home/ubuntu/configs/etc/logorate.d/* /etc/logrotate.d/
 
 echo "Please wait until docker socket is ready"
 #Wait until docker service is ready
-while ! [ -e /var/run/docker.sock ]; do
-  echo "*"
-  sleep 0.1
+while [ $dockerDaemonStatus != 'on' ]
+do
+  echo "Waiting 5 seconds for docker daemon..."
+  timeout 5 docker ps
+  status=$?
+	
+  if [ $status -eq 0 ]
+  then 
+    dockerDaemonStatus='on'
+    echo "Docker daemon ready"
+  fi
+
 done
 
 echo "Cleaning dockers unused volumes"
