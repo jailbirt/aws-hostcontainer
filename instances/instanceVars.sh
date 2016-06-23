@@ -17,7 +17,6 @@ ipv4=`/usr/bin/curl -s http://169.254.169.254/latest/meta-data/local-ipv4`
 publicipv4=`/usr/bin/curl -s http://169.254.169.254/latest/meta-data/public-ipv4`
 region=`/usr/bin/curl -s http://169.254.169.254/latest/dynamic/instance-identity/document | grep region | awk -F\" '{print $4}'`
 elasticIp=''
-loadBalancer=''
 #evaluar si cloudwatch o directamente elastic.
 #/home/ubuntu/aws-hostcontainer/batch/os/awsLogs.sh staging
 dockerEnv=''
