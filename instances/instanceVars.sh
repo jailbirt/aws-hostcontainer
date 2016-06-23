@@ -54,7 +54,7 @@ case $instanceType in
   ;;
 
   *nodes*)
-    instanceType='nodes'
+    instanceType='awsnodes'
     dockerEnv=staging
     loadBalancer="$loadBalancer "$dockerEnv$codeName'ContainerHosts'""
   ;;
