@@ -4,6 +4,7 @@ source /home/ubuntu/configs/customVars.sh
 dockerPath='/home/ubuntu/dockers/'
 #Defines location for scripts
 scriptsPath='/home/ubuntu/aws-hostcontainer'
+customScriptsPath='/home/ubuntu/configs/scripts'
 #Defines priv key dest.
 keyPath='/home/ubuntu/.ssh'
 
