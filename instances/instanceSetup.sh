@@ -61,4 +61,8 @@ sudo su - ubuntu -c "$scriptsPath/instances/dockerDeploy.sh"
 echo "initializing HostContainer Env:$dockerEnv,
      data: $instanceType $imageID $imageDesc" | mail -s "Initializing DockerHost Container Env:$dockerEnv " $notify
 
+if [ -f /home/ubuntu/configs/customConfigs.sh ];then
+  echo "Running configs/custom.sh"
+  bash /home/ubuntu/configs/customConfigs.sh $instanceType
+fi
 true
