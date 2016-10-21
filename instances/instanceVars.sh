@@ -60,6 +60,11 @@ case $instanceType in
     loadBalancer="$loadBalancer "$dockerEnv$codeName'ContainerHosts'""
   ;;
 
+  *nodedev*)
+    dockerEnv=development
+    loadBalancer="$dockerEnv$codeName'ContainerHosts'"
+  ;;
+
   *noded*)
     dockerEnv=demo
     loadBalancer="$dockerEnv$codeName'ContainerHosts'"
