@@ -61,8 +61,9 @@ case $instanceType in
   ;;
 
   *nodedev*)
+    instanceType='awsnodedev'
     dockerEnv=development
-    loadBalancer="$dockerEnv$codeName'ContainerHosts'"
+    loadBalancer="$loadBalancer "$dockerEnv$codeName'ContainerHosts'""
   ;;
 
   *noded*)
