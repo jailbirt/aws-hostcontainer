@@ -49,7 +49,7 @@ case $instanceType in
 
   *nodep*)
     dockerEnv=production
-    loadBalancer="$dockerEnv$codeName'ContainerHosts'"
+    loadBalancer="$loadBalancer "$dockerEnv$codeName'ContainerHosts'""
     #evaluar si cloudwatch o directamente elastic.
     #/home/ubuntu/aws-hostcontainer/batch/os/awsLogs.sh prod
   ;;
