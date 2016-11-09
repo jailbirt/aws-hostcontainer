@@ -48,6 +48,7 @@ instanceType=$(echo $instanceType | cut -d'.' -f1 | sed s/[0-9]//g)
 case $instanceType in
 
   *nodep*)
+    instanceType='awsnodep'
     dockerEnv=production
     loadBalancer="$loadBalancer "$dockerEnv$codeName'Docker'""
     #evaluar si cloudwatch o directamente elastic.
