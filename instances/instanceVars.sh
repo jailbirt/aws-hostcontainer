@@ -49,7 +49,7 @@ case $instanceType in
 
   *nodep*)
     dockerEnv=production
-    loadBalancer="$loadBalancer "$dockerEnv$codeName'ContainerHosts'""
+    loadBalancer="$loadBalancer "$dockerEnv$codeName'Docker'""
     #evaluar si cloudwatch o directamente elastic.
     #/home/ubuntu/aws-hostcontainer/batch/os/awsLogs.sh prod
   ;;
@@ -57,24 +57,24 @@ case $instanceType in
   *nodes*)
     instanceType='awsnodes'
     dockerEnv=staging
-    loadBalancer="$loadBalancer "$dockerEnv$codeName'ContainerHosts'""
+    loadBalancer="$loadBalancer "$dockerEnv$codeName'Docker'""
   ;;
 
   *nodedev*)
     instanceType='awsnodedev'
     dockerEnv=development
-    loadBalancer="$loadBalancer "$dockerEnv$codeName'ContainerHosts'""
+    loadBalancer="$loadBalancer "$dockerEnv$codeName'Docker'""
   ;;
 
   *noded*)
     dockerEnv=demo
-    loadBalancer="$dockerEnv$codeName'ContainerHosts'"
+    loadBalancer="$dockerEnv$codeName'Docker'"
   ;;
 
   *nodex*)
     instanceType='awsnodex'
     dockerEnv=experimental
-    loadBalancer="$loadBalancer "$dockerEnv$codeName'ContainerHosts'""
+    loadBalancer="$loadBalancer "$dockerEnv$codeName'Docker'""
   ;;
 
   *webcropvates*)
