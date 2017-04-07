@@ -8,6 +8,7 @@ echo Getting Private Files...
 echo Get Your Private Key.
 echo $aws s3 cp s3://$privKeybucket/$privKey $keyPath/id_rsa
 $aws s3 cp s3://$privKeybucket/$privKey $keyPath/id_rsa
+chmod 600 $keyPath/id_rsa
 ssh-keygen -y -f $keyPath/id_rsa > $keyPath/id_rsa.pub
 cat $keyPath/id_rsa.pub >> $keyPath/authorized_keys
 chown ubuntu $keyPath/* && chmod 600 $keyPath/*
