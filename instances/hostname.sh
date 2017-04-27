@@ -14,7 +14,17 @@ for i in $(seq 1 $maximaCantInstancias); do
    host="$host"."$domainName"
    break
   else
-   host=''
+   runningInstanceID=$(ec2-describe-instances --filter instance-state-code=16 |grep TAG |grep $host | awk '{print $3}') 
+   if [ "$runningInstanceID" == "$instanceID" ]
+   then
+     echo "Hostname $host ya asignado a esta instance"
+     echo "InstanceID=$instanceID runningInstance=$runningInstanceID"
+     shorthostname="$host"
+     host="$host"."$domainName"
+     break
+   else
+     host=''
+   fi
   fi
 done
 
