@@ -21,11 +21,11 @@ chown -R ubuntu /home/ubuntu/.docker
 $scriptsPath/instances/getConfigs.sh
 
 common() {
-  $scriptsPath/instances/createSwapFile.sh
+  #$scriptsPath/instances/createSwapFile.sh
   $scriptsPath/instances/hostname.sh
   $scriptsPath/instances/tagInstance.sh
   $scriptsPath/instances/addDnsRecords.sh
-  $scriptsPath/instances/getLastSourceFromGit.sh /home/ubuntu/dockers
+  #$scriptsPath/instances/getLastSourceFromGit.sh /home/ubuntu/dockers
   $customScriptsPath/mounts.sh
   $scriptsPath/instances/addInstanceToBalancer.sh
 }
@@ -37,31 +37,31 @@ cp -pr /home/ubuntu/configs/etc/nginx/* /etc/nginx/
 service nginx reload
 cp /home/ubuntu/configs/etc/logorate.d/* /etc/logrotate.d/
 
-echo "Please wait until docker socket is ready"
-#Wait until docker service is ready
-while [ $dockerDaemonStatus != 'on' ]
-do
-  echo "Waiting 5 seconds for docker daemon..."
-  timeout 5 docker ps
-  status=$?
-	
-  if [ $status -eq 0 ]
-  then 
-    dockerDaemonStatus='on'
-    echo "Docker daemon ready"
-  fi
+#echo "Please wait until docker socket is ready"
+##Wait until docker service is ready
+#while [ $dockerDaemonStatus != 'on' ]
+#do
+#  echo "Waiting 5 seconds for docker daemon..."
+#  timeout 5 docker ps
+#  status=$?
+#	
+#  if [ $status -eq 0 ]
+#  then 
+#    dockerDaemonStatus='on'
+#    echo "Docker daemon ready"
+#  fi
+#
+#done
 
-done
-
-echo "Cleaning dockers unused volumes"
-$scriptsPath/docker/dockerCleanUp.sh
-
-echo "Running Deploy"
-sudo su - ubuntu -c "$scriptsPath/instances/dockerDeploy.sh"
-
-echo "initializing HostContainer Env:$dockerEnv,
-     data: $instanceType $imageID $imageDesc" | mail -s "Initializing DockerHost Container Env:$dockerEnv " $notify
-
+#echo "Cleaning dockers unused volumes"
+#$scriptsPath/docker/dockerCleanUp.sh
+#
+#echo "Running Deploy"
+#sudo su - ubuntu -c "$scriptsPath/instances/dockerDeploy.sh"
+#
+#echo "initializing HostContainer Env:$dockerEnv,
+#     data: $instanceType $imageID $imageDesc" | mail -s "Initializing DockerHost Container Env:$dockerEnv " $notify
+#
 if [ -f /home/ubuntu/configs/customConfigs.sh ];then
   echo "Running configs/custom.sh"
   bash /home/ubuntu/configs/customConfigs.sh $instanceType

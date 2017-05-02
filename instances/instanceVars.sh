@@ -78,6 +78,12 @@ case $instanceType in
     loadBalancer="$loadBalancer "$dockerEnv$codeName'Docker'""
   ;;
 
+  *geoclusterx*)
+    instanceType='awsgeoclusterx'
+    dockerEnv=experimental
+    loadBalancer="$geoserverLoadBalancer"
+  ;;
+
   *webcropvates*)
     instancetype='awswebcropvatesserver'
     loadBalancer='vatesWebcropProduction'
