@@ -78,6 +78,24 @@ case $instanceType in
     loadBalancer="$loadBalancer "$dockerEnv$codeName'Docker'""
   ;;
 
+  *geoclusterp*)
+    instanceType='awsgeoclusterp'
+    dockerEnv=production
+    loadBalancer="$geoserverLoadBalancer"
+  ;;
+
+  *geoclusterd*)
+    instanceType='awsgeoclusters'
+    dockerEnv=staging
+    loadBalancer="$geoserverLoadBalancer"
+  ;;
+
+  *geoclusterd*)
+    instanceType='awsgeoclusterd'
+    dockerEnv=development
+    loadBalancer="$geoserverLoadBalancer"
+  ;;
+
   *geoclusterx*)
     instanceType='awsgeoclusterx'
     dockerEnv=experimental
