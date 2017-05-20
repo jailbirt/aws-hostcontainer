@@ -19,6 +19,4 @@ git checkout .
 git reset --hard
 git pull
 echo "starting docker-$dockerEnv-compose.yml"
-#I'm not interested in stdout. Hopefully I ll configure using other way.
-#(nohup $compose -f docker-$dockerEnv-compose.yml up > /dev/null 2>&1 &)
-($compose -f docker-$dockerEnv-compose.yml up &> /dev/null &)
+$compose -f docker-$dockerEnv-compose.yml up -d
