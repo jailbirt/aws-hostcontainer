@@ -84,7 +84,7 @@ case $instanceType in
     loadBalancer="$geoserverLoadBalancer"
   ;;
 
-  *geoclusterd*)
+  *geoclusters*)
     instanceType='awsgeoclusters'
     dockerEnv=staging
     loadBalancer="$geoserverLoadBalancer"
