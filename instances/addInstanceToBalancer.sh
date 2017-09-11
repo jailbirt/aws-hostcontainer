@@ -13,9 +13,10 @@ else
   loadBalancer="$geoserverLoadBalancer"
 fi
 
-for balancer in $loadBalancer;do
+for balancer in $loadBalancer
+do
   echo "aws elbv2 register-targets --target-group-arn $balancer --targets Id=$instanceID --region $region"
-  aws elbv2 register-targets --target-group-arn $balancer --targets Id=$instanceID --region $region
+  aws elbv2 register-targets --target-group-arn ${balancer} --targets Id=${instanceID} --region ${region}
 done
 
 #for balancer in $loadBalancer;do
