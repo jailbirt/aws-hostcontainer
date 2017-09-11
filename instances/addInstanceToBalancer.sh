@@ -14,7 +14,7 @@ else
 fi
 
 for balancer in $loadBalancer;do
-  echo "aws elbv2 register-targets --target-group-arn $balancer --targets Id=$instanceID"
+  echo "aws elbv2 register-targets --target-group-arn $balancer --targets Id=$instanceID --region $region"
   aws elbv2 register-targets --target-group-arn $balancer --targets Id=$instanceID --region $region
 done
 
