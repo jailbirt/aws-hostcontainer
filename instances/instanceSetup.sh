@@ -53,8 +53,8 @@ cp /home/ubuntu/configs/etc/logorate.d/* /etc/logrotate.d/
 #
 #done
 
-#echo "Cleaning dockers unused volumes"
-#$scriptsPath/docker/dockerCleanUp.sh
+echo "Cleaning dockers unused volumes"
+$scriptsPath/docker/dockerCleanUp.sh
 #
 #echo "Running Deploy"
 #sudo su - ubuntu -c "$scriptsPath/instances/dockerDeploy.sh"
