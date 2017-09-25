@@ -1,6 +1,6 @@
 #!/bin/bash
 scriptsPath='/home/ubuntu/aws-hostcontainer'
-aws='/usr/bin/aws'
+aws=$(which aws)
 dockerDaemonStatus='off'
 source $scriptsPath/instances/instanceVars.sh --printvars
 #Get Priv Key.
